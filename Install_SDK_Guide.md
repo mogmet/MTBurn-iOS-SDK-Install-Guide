@@ -1,9 +1,35 @@
+# 目次
+
+* [対応環境](#対応環境)
+* [開発環境](#開発環境)
+* [AppDavis iOS SDK をダウンロード](#AppDavis iOS SDK をダウンロード)
+* [AppDavis iOS SDK をインストール](#AppDavis iOS SDK をインストール)
 
 本ドキュメントは AppDavis iOS SDK を Xcode のプロジェクトに追加し、実際に使える所までを記したものです。
 
-サポートする Xcode のバージョンは 5.0 以上としています。
+# 対応環境
 
-## AppDavis iOS SDK をダウンロード
+動作する **iOS のバージョンは 6.0 以上**になります。
+
+動作確認を行っているデバイスは以下になります。
+
+| デバイス種類 |                    モデル名                     |
+|--------------|-------------------------------------------------|
+|    iPhone    |             iPhone 5                            |
+|     iPad     |              iPad Air                           |
+|  iPod Touch  |        iPod Touch 第四世代                      |
+
+上記以外のデバイスでは動作しない可能性があります。
+
+お困りの際は以下のサポートまで一報ください。
+
+[ios_sdk_support@mtburn.com](ios_sdk_support@mtburn.com)
+
+# 開発環境
+
+サポートする **Xcode のバージョンは 5.0 以上**としています。
+
+# AppDavis iOS SDK をダウンロード
 
 以下の URL から AppDavis iOS SDK をダウンロードします。
 
@@ -17,13 +43,9 @@
 AppDavis.framework
 ```
 
-## AppDavis iOS SDK をインストール
+# AppDavis iOS SDK をインストール
 
 上記で取得した Framework ファイルをプロジェクトへ追加します。
-
-### プロジェクトへの追加
-
-まずは取得した Framework ファイルをプロジェクトへ追加します。
 
 AppDavis.framework をドラッグ&ドロップで、プロジェクトの Frameworks ディレクトリに入れて下さい。
 
