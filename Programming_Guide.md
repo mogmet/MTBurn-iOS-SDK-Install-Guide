@@ -65,15 +65,21 @@ ADVSWallAdLoader を用いて以下の様に実装し、ウォール広告を表
 //(1) ヘッダーをインポート
 #import <AppDavis/ADVSWallAdLoader.h>
 
+@interface YourViewController ()
+//(2) プロパティを定義 
+@property (nonatomic) ADVSWallAdLoader *wallAdLoader;
+@end
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    //(2) ADVSWallAdLoader をインスタンス化
-    ADVSWallAdLoader *wallAdLoader = [ADVSWallAdLoader new];
+    //(3) ADVSWallAdLoader をインスタンス化
+    self.wallAdLoader = [ADVSWallAdLoader new];
 
-    //(3) ウォール広告ロードを呼び出し
-    [wallAdLoader loadAd];
+    //(4444) ウォール広告ロードを呼び出し
+    [self.wallAdLoader loadAd];
 }
 
 ```
@@ -93,7 +99,7 @@ ADVSWallAdLoaderDelegate に準拠しているので、それ経由で受信す�
 - (void)viewDidLoad
 {
     //(1) delegate を設定
-    wallAdLoader.delegate = self;
+    self.wallAdLoader.delegate = self;
 }
 
 //(2)ウォール広告が出る直前のイベントを通知
@@ -119,10 +125,154 @@ ADVSWallAdLoaderDelegate に準拠しているので、それ経由で受信す�
 ```
 # アイコン広告
 
+
 ## アイコン広告の表示
+
+アイコン広告を表示するために必要なファイルは以下の2つです。
+
+```
+ADVSIconAdLoader.h
+ADVSIconAdView.h
+```
+
+ADVSIconAdLoader がアイコン広告の情報をロードするためのコントローラ、ADVSIconAdView がアイコン広告を表示するためのビューです。
+
+以下の様に実装してアイコン広告を表示します。
+
+```
+//(1) 必要なヘッダーファイルをインポート
+#import <AppDavis/ADVSIconAdLoader.h>
+#import <AppDavis/ADVSIconAdView.h>
+
+@interface MTBViewController ()
+//(2)プロパティ定義
+@property (nonatomic) ADVSIconAdLoader *iconAdLoader;
+@end
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    //(3)アイコン広告ビューを生成
+    ADVSIconAdView *iconAdView = [ADVSIconAdView new];
+
+    //(4)アイコン広告コントローラを生成
+    self.iconAdLoader = [ADVSIconAdLoader new];
+
+    //(5)広告情報をロードする対象ビューを追加
+    [self.iconAdLoader addIconAdView:iconAdView];
+
+    //(6)広告情報をロード
+    [self.iconAdLoader loadAd];
+}
+```
+
 ## アイコン広告の表示時のイベント取得
+
+アイコン広告を表示する際に、そのイベントを受け取りたい場合があります。
+
+その場合は ADVSIconAdLoader のプロパティである delegate が、 
+
+ADVSIconAdLoaderDelegate に準拠しているので、それ経由で受信する事が出来ます。
+
+```
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    //(1)delegate を設定
+    self.iconAdLoader.delegate = self;
+}
+
+//(2)アイコン広告情報取得開始のイベントを通知
+- (void)iconAdLoaderDidStartLoadingAd:(ADVSIconAdLoader *)iconAdLoader
+{
+}
+
+//(3)アイコン広告情報全体の取得完了のイベントを通知
+- (void)iconAdLoaderDidFinishLoadingAd:(ADVSIconAdLoader *)iconAdLoader
+{
+}
+
+//(4)アイコン広告情報取得失敗のイベントを通知
+- (void)iconAdLoader:(ADVSIconAdLoader *)iconAdLoader didFailToLoadAdWithError:(NSError *)error
+{
+}
+
+//(5)対象アイコンビューのアイコン広告情報の取得完了イベントを通知
+- (void)iconAdLoader:(ADVSIconAdLoader *)iconAdLoader didReceiveIconAdView:(ADVSIconAdView *)iconAdView
+{
+}
+
+//(6)対象アイコンビューのアイコン広告情報の取得失敗イベントを通知
+- (void)iconAdLoader:(ADVSIconAdLoader *)iconAdLoader didFailToReceiveIconAdView:(ADVSIconAdView *)iconAdView
+{
+}
+
+//(7)対象アイコンビューのクリックイベントを通知
+- (void)iconAdLoader:(ADVSIconAdLoader *)iconAdLoader didClickIconAdView:(ADVSIconAdView *)iconAdView
+{
+}
+
+```
+
 ## アイコン広告のリフレッシュ時間の調整
+
+アイコン広告情報は ADVSIconAdLoader によってリフレッシュされます。
+
+デフォルトの設定では30秒になっています。
+
+リフレッシュ時間は30秒~120秒の間で以下のように設定できます。
+
+それ以外の時間を設定しようとした場合は無視されますので注意して下さい。
+
+```
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    self.iconAdLoader.refreshInterval = 60.0f;
+}
+```
+
 ## アイコン広告のリフレッシュ停止
+
+アイコン広告情報は ADVSIconAdLoader によって自動的にリフレッシュされます。
+
+デフォルトではリフレッシュされますので、リフレッシュされたくない場合は以下の様に設定して下さい。
+
+```
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    self.iconAdLoader.autoRefreshingEnabled = NO;
+}
+```
+
+また、一時停止と再開も可能です。
+
+以下の様にタブの移動などでビューが移動する場合は一時停止、自身のビューに戻ってきた際に再開処理を行うことで余分な通信を減らす事ができます。
+
+```
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    //(1)広告ロードを再開
+    [self.iconAdLoader resume];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    //(1)広告ロードを一時停止
+    [self.iconAdLoader pause];
+}
+```
 
 # よくある質問
 
