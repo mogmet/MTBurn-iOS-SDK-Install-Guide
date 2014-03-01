@@ -80,5 +80,18 @@ Frameworks グループに AppDavis.framework が追加された事を確認で�
 
 ![](Install_SDK_Guide_Images/select_adsupport_framework.png)
 
+最後に以下の順番で Other Linker Flag を設定します。
+
+- 7.プロジェクトファイルを選択
+
+- 8.ビルドターゲットを選択
+
+- 9.Build Settings タブを選択
+
+- 10.Other Linker Flags を検索、選択
+
+- 11.-ObjC フラグを追加
+
+![](Install_SDK_Guide_Images/other_linker_flags.png)
 
 これでインストールは完了です。
