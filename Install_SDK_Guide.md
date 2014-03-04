@@ -23,7 +23,7 @@
 
 お困りの際は以下のサポートまで一報ください。
 
-[ios_sdk_support@mtburn.com](ios_sdk_support@mtburn.com)
+[a@mtburn.com](a@mtburn.com)
 
 # 開発環境
 
