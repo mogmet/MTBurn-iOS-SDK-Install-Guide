@@ -33,9 +33,7 @@
 
 以下の URL から AppDavis iOS SDK をダウンロードします。
 
-(TODO:URL を変更)
-
-[AppDavis iOS SDK をダウンロード](https://www.dropbox.com/s/hc8jtk8m2fyaxug/AppDavis.1.0.zip)
+[AppDavis iOS SDK をダウンロード](https://banner.dspcdn.com/mtbimg/resource/AppDavis.1.0.zip)
 
 ダウンロードが完了したら、取得した zip ファイルを解凍して以下の Framework ファイルを確認して下さい。
 
