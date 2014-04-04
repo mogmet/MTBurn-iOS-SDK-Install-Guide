@@ -4,17 +4,20 @@
     * [Media Id の取得](#Media Id の取得)
     * [コード内初期化](#コード内初期化)
 * [ウォール広告](#ウォール広告)
-    * [ウォール広告について](#ウォール広告について)
     * [ウォール広告の表示](#ウォール広告の表示)
     * [ウォール広告の表示時のイベント取得](#ウォール広告の表示時のイベント取得)
+    * [ウォール広告誘導ボタンの表示計測](#ウォール広告誘導ボタンの表示計測 )
+    * [ウォール広告誘導画像の取得](#ウォール広告誘導画像の取得)
 * [アイコン広告](#アイコン広告)
-    * [アイコン広告について](#アイコン広告について)
     * [アイコン広告の表示](#アイコン広告の表示)
     * [アイコン広告の表示時のイベント取得](#アイコン広告の表示時のイベント取得)
     * [アイコン広告のリフレッシュ時間の調整](#アイコン広告のリフレッシュ時間の調整)
     * [アイコン広告のリフレッシュ停止](#アイコン広告のリフレッシュ停止)
+    * [アイコン広告表示パラメータの設定](#アイコン広告表示パラメータの設定)
+* [インタースティシャル広告](#インタースティシャル広告)
+    * [インタースティシャル広告の表示](#アイコン広告の表示)
+    * [インタースティシャル広告表示時のイベント取得](#アイコン広告表示時のイベント取得)
 * [よくある質問](#よくある質問)
-* [更新履歴](#更新履歴)
 
 # まずはじめに
 
@@ -34,9 +37,9 @@
 
 上記で取得した media_id を引数に、 AppDavis を初期化します。
 
-特別な理由が無い限り、 
+特別な理由が無い限り、
 
-[UIApplicationDelegate -application:didFinishLaunchingWithOptions:](https://developer.apple.com/library/ios/documentation/uikit/reference/UIApplicationDelegate_Protocol/Reference/Reference.html#//apple_ref/occ/intfm/UIApplicationDelegate/application:didFinishLaunchingWithOptions:) 
+[UIApplicationDelegate -application:didFinishLaunchingWithOptions:](https://developer.apple.com/library/ios/documentation/uikit/reference/UIApplicationDelegate_Protocol/Reference/Reference.html#//apple_ref/occ/intfm/UIApplicationDelegate/application:didFinishLaunchingWithOptions:)
 
 に記述して下さい。
 
@@ -47,10 +50,6 @@
 この**初期化を行わない限り、後述するアイコン広告やウォール広告の取得全般を行う事ができません**ので注意して下さい。
 
 # ウォール広告
-
-## ウォール広告について
-
-ウォール広告は〜
 
 ## ウォール広告の表示
 
@@ -68,7 +67,7 @@ ADVSWallAdLoader を用いて以下の様に実装し、ウォール広告を表
 #import <AppDavis/ADVSWallAdLoader.h>
 
 @interface YourViewController ()
-//(2) プロパティを定義 
+//(2) プロパティを定義
 @property (nonatomic) ADVSWallAdLoader *wallAdLoader;
 @end
 
@@ -76,7 +75,7 @@ ADVSWallAdLoader を用いて以下の様に実装し、ウォール広告を表
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     //(3) ADVSWallAdLoader をインスタンス化
     self.wallAdLoader = [ADVSWallAdLoader new];
 
@@ -92,11 +91,11 @@ ADVSWallAdLoader を用いて以下の様に実装し、ウォール広告を表
 
 ウォール広告を表示する際に、そのイベントを受け取りたい場合があります。
 
-その場合は ADVSWallAdLoader のプロパティである delegate が、 
+その場合は ADVSWallAdLoader のプロパティである delegate が、
 
 ADVSWallAdLoaderDelegate に準拠しているので、それ経由で受信する事が出来ます。
 
-```
+```objc
 
 - (void)viewDidLoad
 {
@@ -125,6 +124,136 @@ ADVSWallAdLoaderDelegate に準拠しているので、それ経由で受信す�
 }
 
 ```
+
+## ウォール広告誘導ボタンの表示計測
+
+ウォール広告誘導ボタンの表示回数 (AppImp) を計測し、ウォール誘導ボタンの CTR の測定が可能です。
+誘導ボタン表示時に以下のメソッドを呼び出していただくことで、表示回数を計測します。
+計測が不要の場合は実装する必要はありません。
+
+```objc
+[self.wallAdLoader notifyAppImp];
+```
+
+また以下の delegate メソッドを実装することで、計測リクエストの成功・失敗時に通知を受け取ることが可能です。
+
+```objc
+- (void)viewDidLoad
+{
+    //(1) delegate を設定
+    self.wallAdLoader.delegate = self;
+}
+
+//(2)計測リクエストの正常終了を通知
+- (void)wallAdLoaderDidFinishNotifyingApp:(ADVSWallAdLoader *)wallAdLoader
+{
+}
+
+//(3)計測リクエストの失敗を通知
+- (void)wallAdLoader:(ADVSWallAdLoader *)wallAdLoader didFailToNotifyAppImpWithError:(NSError *)error
+{
+}
+```
+
+## ウォール広告誘導画像の取得
+
+ウォール広告誘導ボタンをサーバから取得し、広告を表示させることが可能です。
+本機能のご利用前に、管理画面での設定作業が必要です。
+
+1. **[管理画面操作]** 誘導画像のセットを作成します。画像セットの ID (`WallLeadId`) が発行されます。
+2. **[管理画面操作]** 作成した画像セット内に誘導ボタン画像を入稿します。また画像配信の最適化設定を行います。
+3. **[SDK 呼び出し]** `requestWallLead` メソッドを発行された `WallLeadId` をつけて呼び出し、誘導ボタン画像を取得します。
+4. **[Developer 様実装]** 誘導ボタン画像取得が完了した際に通知される、`wallAdLoaderDidGetWallLead` を実装します。
+  - 画像の URL と縦横サイズが通知されるので、ボタンに設定するよう実装します
+  - このメソッドは必ず実装していただく必要があります
+5. **[SDK 呼び出し]** ボタンが表示された際に `notifyAppImp` メソッドを呼び出し、ウォール広告誘導ボタンの表示回数を計測します
+  - 画像毎のボタン表示回数の計測のために必要です
+  - 実装は任意ですが、実装しない場合はボタン画像の表示回数の計測ができません。(クリック数は計測されますが、CTR が算出できません)
+6. **[SDK 呼び出し]** 通常通り、誘導ボタンがタップされた際に `loadAd` メソッドを呼び出し、ウォール広告を表示します。
+
+`requestWallLead` には発行された `WallLeadId` を渡して呼び出します。
+
+```objc
+[self.wallAdLoader requestWallLead:@"YOUR_WALL_LEAD_ID"];
+```
+
+以下の delegate を実装することで各種通知を受け取ることができます。なお `wallAdLoaderDidGetWallLead` の実装は必須です。
+
+- `wallAdLoaderDidGetWallLead`
+
+```objc
+- (void)wallAdLoaderDidGetWallLead:(ADVSWallAdLoader *)wallAdLoader imageURL:(NSURL *)imageURL width:(NSInteger *)width height:(NSInteger *)height
+```
+
+  - 画像 URL、画像幅 (pixel)、画像高さ (pixel) が引数として渡されます
+  - このメソッドで受け取った画像をボタンに設定するよう実装します
+- `didFailToRequestWallLeadWithError`
+
+```objc
+- (void)wallAdLoader:(ADVSWallAdLoader *)wallAdLoader didFailToRequestWallLeadWithError:(NSError *)error
+```
+
+  - リクエストが失敗した場合に通知されます
+
+### 実装例
+
+`requestWallLead` を呼び出しを追加します。
+
+```objc
+// yourViewController.m
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    self.wallAdLoader = [ADVSWallAdLoader new];
+    self.wallAdLoader.delegate = self;
+
+    [self.wallAdLoader requestWallLead:@"YOUR_WALL_LEAD_ID"];
+}
+```
+
+
+delegate を実装します。`wallAdLoaderDidGetWallLead` 内で受け取った画像をボタンに設定します。
+ボタンが画面上に表示される場合は `notifyAppImp` を呼び出します。
+
+```objc
+// yourViewController.m
+
+- (void)wallAdLoaderDidGetWallLead:(ADVSWallAdLoader *)wallAdLoader imageURL:(NSURL *)imageURL width:(NSInteger *)width height:(NSInteger *)height
+{
+    // 受け取った画像をボタンに貼り付ける
+    // (略)
+
+    // 計測リクエストの送信
+    [self.wallAdLoader notifyAppImp];
+}
+
+- (void)wallAdLoader:(ADVSWallAdLoader *)wallAdLoader didFailToRequestWallLeadWithError:(NSError *)error
+{
+    // エラー処理
+}
+```
+
+通常通り、ボタンがタップされた際の広告呼び出しを行います。
+
+```objc
+// yourViewController.m
+
+- (IBAction)wallButtonTapped:(id)sender
+{
+    [self.wallAdLoader loadAd];
+}
+```
+
+取得済みの画像を使いボタンを表示する場合は、`notifyAppImp` の呼び出しを行うことで、その表示回数も計測可能です。
+
+```objc
+// yourViewController.m
+
+// 画像を貼り付けた誘導ボタンが表示されるたびに呼び出す
+[self.wallAdLoader notifyAppImp];
+```
+
 # アイコン広告
 
 
@@ -173,7 +302,7 @@ ADVSIconAdLoader がアイコン広告の情報をロードするためのコン
 
 アイコン広告を表示する際に、そのイベントを受け取りたい場合があります。
 
-その場合は ADVSIconAdLoader のプロパティである delegate が、 
+その場合は ADVSIconAdLoader のプロパティである delegate が、
 
 ADVSIconAdLoaderDelegate に準拠しているので、それ経由で受信する事が出来ます。
 
@@ -262,7 +391,7 @@ ADVSIconAdLoaderDelegate に準拠しているので、それ経由で受信す�
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+
     //(1)広告ロードを再開
     [self.iconAdLoader resume];
 }
@@ -270,17 +399,10 @@ ADVSIconAdLoaderDelegate に準拠しているので、それ経由で受信す�
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    
+
     //(1)広告ロードを一時停止
     [self.iconAdLoader pause];
 }
 ```
 
 # よくある質問
-
-
-# 更新履歴
-
-| バージョン |   更新日付   |                更新内容                |
-|------------|--------------|----------------------------------------|
-|   1.0.0    |  2014/3/x    |             初期バージョン             |
