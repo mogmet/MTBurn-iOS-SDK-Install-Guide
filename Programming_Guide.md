@@ -413,4 +413,45 @@ ADVSIconAdLoaderDelegate に準拠しているので、それ経由で受信す�
 - 画面遷移で広告が隠れる場合など、画面内にアイコン広告が表示されない場合は、`pause` メソッドでリフレッシュを停止してください。
 - 画面遷移で広告のある View に戻った場合など、画面内にアイコン広告を表示する場合は、`resume` メソッドでリフレッシュを再開させてください。
 
+## アイコン広告表示パラメータの設定
+
+`initMedia` 時に初期化パラメータを、第二引数 `params` として渡すことで、アイコン広告の表示形式の調整が可能です。以下の項目が設定できます。
+
+パラメータ | 説明 | 型 | デフォルト値 | 例
+--- | ---- | --- | --- | ---
+ADVSParameterIconAdWidth | 広告領域の横幅 (pixel) | CGFloat | `97.5` | `@75.0f`
+ADVSParameterIconAdHeight | 広告領域の縦幅 (pixel) | CGFloat | `97.5` | `@75.0f`
+ADVSParameterIconAdImgWidth | 広告画像横幅 (pixel) | CFFloat | `65` | `@50.0f`
+ADVSParameterIconAdImgHeight | 広告画像縦幅 (pixel | CGFloat | `65` | `@50.0f`
+ADVSParameterIconAdTextColor | 文字色 (RGB16進数表記) | NSString | `000000` (黒色) | `@ff0000`
+ADVSParameterIconAdTextAlpha | 文字透過設定 (0-1 の範囲の割合) | CGFloat | `1` (透過なし) | `@1.0f`
+ADVSParameterIconAdTextBgColor | 文字領域の背景色 (RGB16進数表記) | NSString | `ffffff` (白色) | `@000000`
+ADVSParameterIconAdTextBgAlpha | 文字領域の背景透過設定 (0-1 の範囲の割合) | CGFloat | `0` (完全な透過) | `@1.0f`
+ADVSParameterIconAdTextVisible | 文字表示有無 | BOOL | 'YES' (表示する) | `@0`
+ADVSParameterIconAdTextFontSize | 文字のフォントサイズ (pixel) | CGFloat | `10.4` | `@10.4f`
+ADVSParameterIconAdTextWidth | 文字領域の幅 (pixel) | CGFloat | `65` | `@50.0f`
+ADVSParameterIconAdTextHeight | 文字領域の高さ (pixel) | CGFloat | `16.9` | `@13.0f`
+ADVSParameterIconAdTextPadding | 文字領域の上部パディング (pixel) | CGFloat | `5` | `@10.0f`
+ADVSParameterIconAdTextFontAjustWidth | 文字領域の自動リサイズ設定 | BOOL | `YES` | `@0`
+
+実装例
+
+```objc
+     [AppDavis initMedia:@"YOUR_MEDIA_ID" params:@{ADVSParameterIconAdWidth: @75.0f,
+                                                   ADVSParameterIconAdHeight: @75.0f,
+                                                   ADVSParameterIconAdImgWidth: @50.0f,
+                                                   ADVSParameterIconAdImgHeight: @50.0f,
+                                                   ADVSParameterIconAdTextColor: @"ff0000",
+                                                   ADVSParameterIconAdTextAlpha: @1.0f,
+                                                   ADVSParameterIconAdTextBgColor: @"ffffff",
+                                                   ADVSParameterIconAdTextBgAlpha: @1.0f,
+                                                   ADVSParameterIconAdTextVisible: @"1",
+                                                   ADVSParameterIconAdTextFontSize: @10.4f,
+                                                   ADVSParameterIconAdTextWidth: @50.0f,
+                                                   ADVSParameterIconAdTextHeight: @13.0f,
+                                                   ADVSParameterIconAdTextPadding: @10.0f,
+                                                   ADVSParameterIconAdTextFontAjustWidth: @"0",
+                                      }];
+```
+
 # よくある質問
