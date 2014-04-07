@@ -169,7 +169,7 @@ ADVSIconAdView.h
 
 ADVSIconAdLoader がアイコン広告の情報をロードするためのコントローラ、ADVSIconAdView がアイコン広告を表示するためのビューです。
 
-以下の様に実装してアイコン広告を表示します。
+以下の様に実装してアイコン広告を表示します。`iconAdLoader` に登録できる `iconAdView` は最大 6 個です。
 
 ```objc
 //(1) 必要なヘッダーファイルをインポート
@@ -185,13 +185,13 @@ ADVSIconAdLoader がアイコン広告の情報をロードするためのコン
 {
     [super viewDidLoad];
 
-    //(3)アイコン広告ビューを生成
+    //(3)アイコン広告コントローラを生成
+    self.iconAdLoader = [ADVSIconAdLoader new];
+    
+    //(3)アイコン広告ビューを生成。複数設置する場合は個数分生成する。
     ADVSIconAdView *iconAdView = [ADVSIconAdView new];
 
-    //(4)アイコン広告コントローラを生成
-    self.iconAdLoader = [ADVSIconAdLoader new];
-
-    //(5)広告情報をロードする対象ビューを追加
+    //(5)広告情報をロードする対象ビューを追加。複数設置する場合はすべてを add する。
     [self.iconAdLoader addIconAdView:iconAdView];
 
     //(6)広告情報をロード
