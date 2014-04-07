@@ -79,7 +79,7 @@ ADVSWallAdLoader を用いて以下の様に実装し、ウォール広告を表
     //(3) ADVSWallAdLoader をインスタンス化
     self.wallAdLoader = [ADVSWallAdLoader new];
 
-    //(4444) ウォール広告ロードを呼び出し
+    //(4) ウォール広告ロードを呼び出し
     [self.wallAdLoader loadAd];
 }
 
