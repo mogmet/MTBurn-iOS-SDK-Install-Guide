@@ -16,8 +16,8 @@
     * [アイコン広告のリフレッシュ管理](#アイコン広告のリフレッシュ管理)
     * [アイコン広告表示パラメータの設定](#アイコン広告表示パラメータの設定)
 * [インタースティシャル広告](#インタースティシャル広告)
-    * [インタースティシャル広告の表示](#アイコン広告の表示)
-    * [インタースティシャル広告表示時のイベント取得](#アイコン広告表示時のイベント取得)
+    * [インタースティシャル広告の表示](#インタースティシャル広告の表示)
+    * [インタースティシャル広告表示時のイベント取得](#インタースティシャル広告表示時のイベント取得)
 * [よくある質問](#よくある質問)
 
 # まずはじめに
@@ -452,6 +452,90 @@ ADVSParameterIconAdTextFontAjustWidth | 文字領域の自動リサイズ設定 
                                                    ADVSParameterIconAdTextPadding: @10.0f,
                                                    ADVSParameterIconAdTextFontAjustWidth: @"0",
                                       }];
+```
+
+# インタースティシャル広告
+
+## インタースティシャル広告の表示
+
+インタースティシャル広告の表示に必要なファイルは以下です。
+
+```
+ADVSInterstitialAdLoader.h
+```
+
+ADVSInterstitialAdLoader を用いて以下の様に実装し、インタースティシャル広告を表示します。
+
+```objc
+
+//(1) ヘッダーをインポート
+#import <AppDavis/ADVSInterstitialAdLoader.h>
+
+@interface YourViewController ()
+//(2) プロパティを定義
+@property (nonatomic) ADVSInterstitialAdLoader *interstitialAdLoader;
+@end
+
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    //(3) ADVSInterstitialAdLoader をインスタンス化
+    self.interstitialAdLoader = [ADVSInterstitialAdLoader new];
+
+    //(4) インタースティシャル広告ロードを呼び出し
+    [self.interstitialAdLoader loadRequest];
+}
+
+```
+
+上記のように実装する事で、ウォール広告を表示する事が出来ます。
+
+## インタースティシャル広告表示時のイベント取得
+
+インタースティシャル広告を表示する際に、そのイベントを受け取りたい場合があります。
+
+その場合は ADVSInterstitialAdLoader のプロパティである delegate が、
+
+ADVSInterstitialAdLoaderDelegate に準拠しているので、それ経由で受信する事が出来ます。
+
+```objc
+- (void)viewDidLoad
+{
+    //(1) delegate を設定
+    self.interstitialAdLoader.delegate = self;
+}
+
+//(2)広告のロード開始時
+- (void)interstitialAdLoaderDidStartLoadingAd:(ADVSInterstitialAdLoader *)interstitialAdLoader
+{
+}
+
+//(3)広告のロード完了時
+- (void)interstitialAdLoaderDidFinishLoadingAd:(ADVSInterstitialAdLoader *)interstitialAdLoader
+{
+}
+
+//(4)広告 View のロード完了時
+- (void)interstitialAdLoaderDidFinishLoadingAdView:(ADVSInterstitialAdLoader *)interstitialAdLoader
+{
+}
+
+//(5)広告のクリック時
+- (void)interstitialAdLoaderDidClickIntersititialAdView:(ADVSInterstitialAdLoader *)interstitialAdLoader
+{
+}
+
+//(6)広告のロード失敗時
+- (void)interstitialAdLoader:(ADVSInterstitialAdLoader *)interstitialAdLoader didFailToLoadAdWithError:(NSError *)error
+{
+}
+
+//(7)広告 View のロード失敗時
+- (void)interstitialAdLoader:(ADVSInterstitialAdLoader *)interstitialAdLoader didFailToLoadAdViewWithError:(NSError *)error
+{
+}
 ```
 
 # よくある質問
