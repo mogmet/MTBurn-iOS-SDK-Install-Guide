@@ -191,7 +191,7 @@ ADVSIconAdLoader がアイコン広告の情報をロードするためのコン
     //(3)アイコン広告ビューを生成。複数設置する場合は個数分生成する。
     ADVSIconAdView *iconAdView = [ADVSIconAdView new];
 
-    //(5)広告情報をロードする対象ビューを追加。複数設置する場合はすべてを add する。
+    //(5)広告情報をロードする対象ビューを追加。複数設置する場合はすべての View を追加する。
     [self.iconAdLoader addIconAdView:iconAdView];
 
     //(6)広告情報をロード
