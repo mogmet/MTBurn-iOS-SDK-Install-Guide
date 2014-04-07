@@ -380,9 +380,10 @@ ADVSInterstitialAdLoader を用いて以下の様に実装し、インタース�
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    //(3) ADVSInterstitialAdLoader をインスタンス化
+    
+    //(3) ADVSInterstitialAdLoader をインスタンス化。delegate を設定
     self.interstitialAdLoader = [ADVSInterstitialAdLoader new];
+    self.interstitialAdLoader.delegate = self;
 
     //(4) インタースティシャル広告ロードを呼び出し
     [self.interstitialAdLoader loadRequest];
