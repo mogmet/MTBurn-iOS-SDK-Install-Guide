@@ -13,6 +13,7 @@
     * [アイコン広告の表示時のイベント取得](#アイコン広告の表示時のイベント取得)
     * [アイコン広告のリフレッシュ時間の調整](#アイコン広告のリフレッシュ時間の調整)
     * [アイコン広告のリフレッシュ停止](#アイコン広告のリフレッシュ停止)
+    * [アイコン広告のリフレッシュ管理](#アイコン広告のリフレッシュ管理)
     * [アイコン広告表示パラメータの設定](#アイコン広告表示パラメータの設定)
 * [インタースティシャル広告](#インタースティシャル広告)
     * [インタースティシャル広告の表示](#アイコン広告の表示)
@@ -270,7 +271,7 @@ ADVSIconAdLoader がアイコン広告の情報をロードするためのコン
 
 以下の様に実装してアイコン広告を表示します。
 
-```
+```objc
 //(1) 必要なヘッダーファイルをインポート
 #import <AppDavis/ADVSIconAdLoader.h>
 #import <AppDavis/ADVSIconAdView.h>
@@ -306,7 +307,7 @@ ADVSIconAdLoader がアイコン広告の情報をロードするためのコン
 
 ADVSIconAdLoaderDelegate に準拠しているので、それ経由で受信する事が出来ます。
 
-```
+```objc
 
 - (void)viewDidLoad
 {
@@ -358,7 +359,7 @@ ADVSIconAdLoaderDelegate に準拠しているので、それ経由で受信す�
 
 それ以外の時間を設定しようとした場合は無視されますので注意して下さい。
 
-```
+```objc
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -373,7 +374,7 @@ ADVSIconAdLoaderDelegate に準拠しているので、それ経由で受信す�
 
 デフォルトではリフレッシュされますので、リフレッシュされたくない場合は以下の様に設定して下さい。
 
-```
+```objc
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -386,7 +387,7 @@ ADVSIconAdLoaderDelegate に準拠しているので、それ経由で受信す�
 
 以下の様にタブの移動などでビューが移動する場合は一時停止、自身のビューに戻ってきた際に再開処理を行うことで余分な通信を減らす事ができます。
 
-```
+```objc
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -402,6 +403,36 @@ ADVSIconAdLoaderDelegate に準拠しているので、それ経由で受信す�
 
     //(1)広告ロードを一時停止
     [self.iconAdLoader pause];
+}
+```
+
+## アイコン広告のリフレッシュ管理
+
+リフレッシュ設定されたアイコン広告が画面内に表示しないケースがある場合には、必ず以下の処理を行ってください。これには、複数広告の切り替え処理（広告振り分け SDK の利用等も含む）を行う場合も含まれます。
+
+### リフレッシュの中断
+
+画面遷移で広告が隠れる場合など、画面内にアイコン広告が表示されない場合は、以下のように `pause` メソッドでリフレッシュを停止してください。
+
+```objc
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+
+    [self.iconAdLoader pause];
+}
+```
+
+### リフレッシュの再開
+
+画面遷移で広告のある View に戻った場合など、画面内にアイコン広告を表示する場合は、以下のように `resume` メソッドでリフレッシュを再開させてください。
+
+```objc
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+    [self.iconAdLoader resume];
 }
 ```
 
