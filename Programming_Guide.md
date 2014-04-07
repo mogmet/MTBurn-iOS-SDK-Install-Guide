@@ -388,6 +388,13 @@ ADVSInterstitialAdLoader を用いて以下の様に実装し、インタース�
     [self.interstitialAdLoader loadRequest];
 }
 
+//(5) インターステイシャル広告表示準備の完了
+- (void)interstitialAdLoaderDidFinishLoadingAdView:(ADVSInterstitialAdLoader *)interstitialAdLoader
+{
+    //(6) インターステイシャル広告表示を呼び出し
+    [self.interstitialAdLoader displayAd];
+}
+
 ```
 
 上記のように実装する事で、ウォール広告を表示する事が出来ます。
