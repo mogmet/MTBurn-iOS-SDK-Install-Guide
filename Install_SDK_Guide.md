@@ -2,6 +2,7 @@
 
 * [対応環境](#対応環境)
 * [開発環境](#開発環境)
+* [IDFAの使用について](#IDFAの使用について)
 * [AppDavis iOS SDK をダウンロード](#AppDavis iOS SDK をダウンロード)
 * [AppDavis iOS SDK をインストール](#AppDavis iOS SDK をインストール)
 
@@ -28,6 +29,10 @@
 # 開発環境
 
 サポートする **Xcode のバージョンは 5.0 以上**としています。
+
+# IDFAの使用について
+
+本SDKは広告の成果測定のため IDFA を利用しています。
 
 # AppDavis iOS SDK をダウンロード
 
