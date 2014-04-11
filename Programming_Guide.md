@@ -433,7 +433,7 @@ ADVSParameterIconAdTextVisible | 文字表示有無 | BOOL | 'YES' (表示する
 ADVSParameterIconAdTextFontSize | 文字のフォントサイズ (pixel) | CGFloat | `10.4` | `@10.4f`
 ADVSParameterIconAdTextWidth | 文字領域の幅 (pixel) | CGFloat | `65` | `@50.0f`
 ADVSParameterIconAdTextHeight | 文字領域の高さ (pixel) | CGFloat | `16.9` | `@13.0f`
-ADVSParameterIconAdTextPadding | 文字領域の上部パディング (pixel) | CGFloat | `5` | `@10.0f`
+ADVSParameterIconAdTextPadding | 文字領域の上部パディング。アイコン画像と文字間の幅。最小は (pixel, 最小は `0.1`) | CGFloat | `5` | `@10.0f`
 ADVSParameterIconAdTextFontAjustWidth | 文字領域の自動リサイズ設定 | BOOL | `YES` | `@0`
 
 実装例
