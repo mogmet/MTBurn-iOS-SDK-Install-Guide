@@ -5,7 +5,7 @@
 * [IDFAの使用について](#IDFAの使用について)
 * [AppDavis iOS SDK をダウンロード](#AppDavis iOS SDK をダウンロード)
 * [AppDavis iOS SDK をインストール](#AppDavis iOS SDK をインストール)
-* [CocoaPods の利用](#CocoaPodsの利用)
+* [CocoaPods の利用](#cocoapodsの利用)
 
 本ドキュメントは AppDavis iOS SDK を Xcode のプロジェクトに追加し、実際に使える所までを記したものです。
 
