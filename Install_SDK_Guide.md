@@ -5,6 +5,7 @@
 * [IDFAの使用について](#IDFAの使用について)
 * [AppDavis iOS SDK をダウンロード](#AppDavis iOS SDK をダウンロード)
 * [AppDavis iOS SDK をインストール](#AppDavis iOS SDK をインストール)
+* [CocoaPods の利用](#CocoaPods の利用)
 
 本ドキュメントは AppDavis iOS SDK を Xcode のプロジェクトに追加し、実際に使える所までを記したものです。
 
@@ -98,3 +99,19 @@ Frameworks グループに AppDavis.framework が追加された事を確認で�
 ![](Install_SDK_Guide_Images/other_linker_flags.png)
 
 これでインストールは完了です。
+
+# CocoaPods の利用
+
+[CocoaPods](http://cocoapods.org/) を使用した導入も可能です。Podfile に以下のように記入し `pod install` することで SDK がご利用いただけます。
+
+```ruby
+pod 'AppDavis-iOS-SDK'
+```
+
+また以下のようにバージョンを指定することも可能です。
+
+```ruby
+pod 'AppDavis-iOS-SDK', '1.0.XX'
+```
+
+その際は常に最新バージョンの SDK をご利用いただくことを推奨します。
