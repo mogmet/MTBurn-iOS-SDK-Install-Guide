@@ -570,4 +570,5 @@ if (NSFoundationVersionNumber_iOS_6_0 <= floor(NSFoundationVersionNumber)) {
 ## 他社SDKとの競合の解決
 
 AppDavis SDK と他社広告 SDK と同時にご利用頂いた場合に競合が発生し、AppDavis の一部の昨日がご利用いただけない事例が報告されています。
+
 解決方法として、それぞれの SDK の利用タイミングに応じて、初期化処理 (AppDavis の場合 `initMedia` 関数の呼び出し) の呼び出し自体を出し分けてしまうことで、衝突の回避ができることがあります。
