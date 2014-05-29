@@ -47,7 +47,16 @@
 に記述して下さい。
 
 ```
-[AppDavis initMedia:@"your_media_id"];
+// (1) ヘッダファイルの指定
+#import <AppDavis/AppDavis.h>
+
+// (2) 初期化メソッドの呼び出し
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [AppDavis initMedia:@"your_media_id"];
+    
+    // ...
+}
 ```
 
 この**初期化を行わない限り、後述するアイコン広告やウォール広告の取得全般を行う事ができません**ので注意して下さい。
