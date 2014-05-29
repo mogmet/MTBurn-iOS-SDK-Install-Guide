@@ -46,7 +46,7 @@
 
 に記述して下さい。
 
-```
+```objc
 // (1) ヘッダファイルの指定
 #import <AppDavis/AppDavis.h>
 
