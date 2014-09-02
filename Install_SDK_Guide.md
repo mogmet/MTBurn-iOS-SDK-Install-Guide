@@ -37,11 +37,11 @@
 
 # AppDavis iOS SDK をダウンロード
 
-以下の URL から AppDavis iOS SDK をダウンロードします。
+以下の URL から AppDavis iOS SDK をダウンロードします。最新のバージョンを選択することを推奨します。
 
-[AppDavis iOS SDK をダウンロード](https://banner.dspcdn.com/mtbimg/resource/AppDavis.1.0.6.zip)
+[AppDavis iOS SDK をダウンロード](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/releases)
 
-ダウンロードが完了したら、取得した zip ファイルを解凍して以下の Framework ファイルを確認して下さい。
+ダウンロードが完了したら、取得した zip ファイルを解凍して sdk ディレクトリ直下に以下の Framework ファイルを確認して下さい。
 
 ```
 AppDavis.framework
