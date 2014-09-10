@@ -2,7 +2,7 @@
 //  ADVSInterstitialAdLoaderDelegate.h
 //  AppDavis-iOS-SDK
 //
-//  Created by Yohei Yoshimuta on 2014/03/19.
+//  Created by M.T.Burn on 2014/03/19.
 //  Copyright (c) 2014年 M.T.Burn. All rights reserved.
 //
 
@@ -19,6 +19,7 @@
 - (void)interstitialAdLoaderDidStartLoadingAd:(ADVSInterstitialAdLoader *)interstitialAdLoader;
 - (void)interstitialAdLoaderDidFinishLoadingAd:(ADVSInterstitialAdLoader *)interstitialAdLoader;
 - (void)interstitialAdLoaderDidFinishLoadingAdView:(ADVSInterstitialAdLoader *)interstitialAdLoader;
+- (void)interstitialAdLoaderDidSkipLoadingAd:(ADVSInterstitialAdLoader *)interstitialAdLoader;
 - (void)interstitialAdLoaderDidClickIntersititialAdView:(ADVSInterstitialAdLoader *)interstitialAdLoader;
 - (void)interstitialAdLoader:(ADVSInterstitialAdLoader *)interstitialAdLoader didFailToLoadAdWithError:(NSError *)error;
 - (void)interstitialAdLoader:(ADVSInterstitialAdLoader *)interstitialAdLoader didFailToLoadAdViewWithError:(NSError *)error;

@@ -2,7 +2,7 @@
 //  ADVSInterstitialAdLoader.h
 //  AppDavis-iOS-SDK
 //
-//  Created by Yohei Yoshimuta on 2014/03/19.
+//  Created by M.T.Burn on 2014/03/19.
 //  Copyright (c) 2014年 M.T.Burn. All rights reserved.
 //
 
@@ -12,6 +12,11 @@
 @interface ADVSInterstitialAdLoader : NSObject
 
 @property (nonatomic, weak) id<ADVSInterstitialAdLoaderDelegate> delegate;
+
+/**
+ adSpotId is registered in advance and used for skip control
+ */
+@property (nonatomic) NSString *adSpotId;
 
 /**
  Loads a institial type advertisement request asynchronously.

@@ -82,7 +82,7 @@
  @param wallAdLoader Object which is requested wall lead image.
  */
 
-- (void)wallAdLoaderDidGetWallLead:(ADVSWallAdLoader *)wallAdLoader imageURL:(NSURL *)imageURL width:(NSInteger *)width height:(NSInteger *)height;
+- (void)wallAdLoaderDidGetWallLead:(ADVSWallAdLoader *)wallAdLoader imageURL:(NSURL *)imageURL width:(NSInteger)width height:(NSInteger)height;
 
 /**
  Tells event wihch failed to fetch wall lead image.
