@@ -47,6 +47,13 @@
 AppDavis.framework
 ```
 
+また、デモアプリを試す場合は、DemoApp ディレクトリ内のプロジェクトを立ち上げてください。
+
+```
+$ cd DemoApp/
+$ open DemoApp.xcodeproj/
+```
+
 # AppDavis iOS SDK をインストール
 
 上記で取得した Framework ファイルをプロジェクトへ追加します。
