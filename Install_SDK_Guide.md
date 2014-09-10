@@ -5,11 +5,12 @@
 * [IDFAの使用について](#IDFAの使用について)
 * [AppDavis iOS SDK をダウンロード](#AppDavis iOS SDK をダウンロード)
 * [AppDavis iOS SDK をインストール](#AppDavis iOS SDK をインストール)
+* [エラー文言の表示](#エラー文言の表示)
 * [CocoaPods の利用](#cocoapodsの利用)
 
 本ドキュメントは AppDavis iOS SDK を Xcode のプロジェクトに追加し、実際に使える所までを記したものです。
 
-# 対応環境
+#対応環境
 
 動作する **iOS のバージョンは 6.0 以上**になります。
 
@@ -27,15 +28,15 @@
 
 [a@mtburn.com](a@mtburn.com)
 
-# 開発環境
+#開発環境
 
 サポートする **Xcode のバージョンは 5.0 以上**としています。
 
-# IDFAの使用について
+#IDFAの使用について
 
 本SDKは広告の成果測定のため IDFA を利用しています。
 
-# AppDavis iOS SDK をダウンロード
+#AppDavis iOS SDK をダウンロード
 
 以下の URL から AppDavis iOS SDK をダウンロードします。最新のバージョンを選択することを推奨します。
 
@@ -54,7 +55,7 @@ $ cd DemoApp/
 $ open DemoApp.xcodeproj/
 ```
 
-# AppDavis iOS SDK をインストール
+#AppDavis iOS SDK をインストール
 
 上記で取得した Framework ファイルをプロジェクトへ追加します。
 
@@ -107,7 +108,11 @@ Frameworks グループに AppDavis.framework が追加された事を確認で�
 
 これでインストールは完了です。
 
-# CocoaPodsの利用
+#エラー文言の表示
+
+[DemoApp/DemoApp/ADVSError.strings](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/blob/master/DemoApp/DemoApp/ADVSError.strings) を SDK を利用するプロジェクトに加えてください。
+
+#CocoaPodsの利用
 
 [CocoaPods](http://cocoapods.org/) を使用した導入も可能です。Podfile に以下のように記入し `pod install` することで SDK がご利用いただけます。
 
