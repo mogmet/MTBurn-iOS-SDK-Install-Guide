@@ -48,9 +48,10 @@
 AppDavis.framework
 ```
 
-また、デモアプリを試す場合は、DemoApp ディレクトリ内のプロジェクトを立ち上げてください。
+また、デモアプリを試す場合は、DemoApp ディレクトリ内のプロジェクトを立ち上げてください。Framework ファイルの追加は以下を確認して下さい。
 
 ```
+$ unzip ./demo.zip
 $ cd DemoApp/
 $ open DemoApp.xcodeproj/
 ```
@@ -110,7 +111,7 @@ Frameworks グループに AppDavis.framework が追加された事を確認で�
 
 #エラー文言の表示
 
-[DemoApp/DemoApp/ADVSError.strings](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/blob/master/DemoApp/DemoApp/ADVSError.strings) を SDK を利用するプロジェクトに加えてください。
+demo.zip を解凍後、DemoApp/DemoApp/ADVSError.strings を SDK を利用するプロジェクトに加えてください。
 
 #CocoaPodsの利用
 
@@ -123,7 +124,7 @@ pod 'AppDavis-iOS-SDK'
 また以下のようにバージョンを指定することも可能です。
 
 ```ruby
-pod 'AppDavis-iOS-SDK', '1.0.XX'
+pod 'AppDavis-iOS-SDK', 'X.Y.Z'
 ```
 
-その際は常に最新バージョンの SDK をご利用いただくことを推奨します（本家 Specs レポジトリの p-r accept 状況によって最新版の反映が遅れている場合がありえます）。
+その際は常に[最新バージョンの SDK](http://cocoapods.org/?q=AppDavis-ios-sdk) をご利用いただくことを推奨します（最新バージョンの反映が 1日程度遅れる場合がありえますのでご了承ください）。
