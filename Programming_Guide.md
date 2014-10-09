@@ -19,24 +19,28 @@
     * [インタースティシャル広告の表示](#インタースティシャル広告の表示)
     * [インタースティシャル広告表示時のイベント取得](#インタースティシャル広告表示時のイベント取得)
     * [インターステイシャル広告の表示頻度の制御](#インターステイシャル広告の表示頻度の制御)
-* [インストリーム広告](#インストリーム広告)
+* [インフィード広告](#インフィード広告)
     * [広告枠IDの取得](#広告枠IDの取得)
-    * [簡易版インストリーム広告](#簡易版インストリーム広告)
-		* [簡易版インストリーム広告の表示](#簡易版インストリーム広告の表示)
-		* [簡易版インストリーム広告の表示時のイベント取得](#簡易版インストリーム広告の表示時のイベント取得)
-		* [簡易版インストリーム広告の追加ロード](#簡易版インストリーム広告の追加ロード)
-		* [簡易版インストリーム広告フォーマット](#簡易版インストリーム広告フォーマット)
-		* [簡易版インストリーム広告を使う上での注意点](#簡易版インストリーム広告を使う上での注意点)
-    * [カスタムインストリーム広告](#カスタムインストリーム広告)
-		* [カスタムインストリーム広告のロード](#カスタムインストリーム広告のロード)
-		* [カスタムインストリーム広告の表示](#カスタムインストリーム広告の表示)
-		* [カスタムインストリーム広告のインプレッション通知](#カスタムインストリーム広告のインプレッション通知)
-		* [カスタムインストリーム広告のクリック時の遷移処理](#カスタムインストリーム広告のクリック時の遷移処理)
-		* [カスタムインストリーム広告のロードと各種通知時のイベント取得](#カスタムインストリーム広告のロードと各種通知時のイベント取得)
-		* [カスタムインストリーム広告パラメータ](#カスタムインストリーム広告パラメータ)
-		* [SDKがデフォルトで提供する広告フォーマットの任意利用](#SDKがデフォルトで提供する広告フォーマットの任意利用)
+    * [簡易版インフィード広告](#簡易版インフィード広告)
+        * [簡易版インフィード広告の表示](#簡易版インフィード広告の表示)
+        * [簡易版インフィード広告の表示時のイベント取得](#簡易版インフィード広告の表示時のイベント取得)
+        * [簡易版インフィード広告の追加ロード](#簡易版インフィード広告の追加ロード)
+        * [簡易版インフィード広告フォーマット](#簡易版インフィード広告フォーマット)
+        * [簡易版インフィード広告を使う上での注意点](#簡易版インフィード広告を使う上での注意点)
+    * [カスタムインフィード広告](#カスタムインフィード広告)
+        * [カスタムインフィード広告のロード](#カスタムインフィード広告のロード)
+        * [カスタムインフィード広告の表示](#カスタムインフィード広告の表示)
+        * [カスタムインフィード広告のインプレッション通知](#カスタムインフィード広告のインプレッション通知)
+        * [カスタムインフィード広告のクリック時の遷移処理](#カスタムインフィード広告のクリック時の遷移処理)
+        * [カスタムインフィード広告のロードと各種通知時のイベント取得](#カスタムインフィード広告のロードと各種通知時のイベント取得)
+        * [カスタムインフィード広告パラメータ](#カスタムインフィード広告パラメータ)
+        * [SDKがデフォルトで提供する広告フォーマットの任意利用](#SDKがデフォルトで提供する広告フォーマットの任意利用)
 * [よくある質問](#よくある質問)
     * [iOS 6.0未満の端末においてクラッシュする問題への対応](#ios60未満の端末においてクラッシュする問題への対応)
+    * [コード中にあるInstreamはどういう意味ですか](#コード中にあるInstreamはどういう意味ですか)
+    * [〇〇の機能はありますか？](#〇〇の機能はありますか？)
+    * [サンプルプロジェクトはありますか？](#サンプルプロジェクトはありますか？)
+    * [バージョン番号はどういう意味がありますか？](#バージョン番号はどういう意味がありますか？)
     * [他社SDKとの競合の解決](#他社sdkとの競合の解決)
 
 #まずはじめに
@@ -76,7 +80,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [AppDavis initMedia:@"your_media_id"];
-    
+
     // ...
 }
 ```
@@ -322,7 +326,7 @@ ADVSIconAdLoader がアイコン広告の情報をロードするためのコン
 
     //(3)アイコン広告コントローラを生成
     self.iconAdLoader = [ADVSIconAdLoader new];
-    
+
     //(3)アイコン広告ビューを生成。複数設置する場合は個数分生成する。
     ADVSIconAdView *iconAdView = [ADVSIconAdView new];
 
@@ -515,7 +519,7 @@ ADVSInterstitialAdLoader を用いて以下の様に実装し、インタース�
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     //(3) ADVSInterstitialAdLoader をインスタンス化。delegate を設定
     self.interstitialAdLoader = [ADVSInterstitialAdLoader new];
     self.interstitialAdLoader.delegate = self;
@@ -603,9 +607,9 @@ ADVSInterstitialAdLoaderDelegate に準拠しているので、それ経由で�
 また、アプリを起動してから最初に広告が表示されるまでの頻度についても、別途設定することができます。
 
 これによって、次のようなケースに対応することができます。
-- case 1. 
+- case 1.
 	- 設定なし
-- case 2. 
+- case 2.
 	- 初回起動後 6 回目の API call で表示、それ以降は前回表示後 11 回目の API call ごとに表示
 	- 広告枠 ID に `OTM0OjQ1Ng`  をセットして試すことができます
 - case 3.
@@ -624,14 +628,14 @@ ADVSInterstitialAdLoaderDelegate に準拠しているので、それ経由で�
 self.interstitialAdLoader.adSpotId = @"your_adspot_id";
 ```
 
-#インストリーム広告
+#インフィード広告
 
 ## 広告枠IDの取得
 管理画面から広告枠 ID を発行します。次の情報を設定し、広告枠IDが払い出されます。
 
 - 広告枠名
 - 広告画像サイズ
-- [広告フォーマット](#簡易版インストリーム広告フォーマット)（後述する簡易版インストリーム広告のみ必要）
+- [広告フォーマット](#簡易版インフィード広告フォーマット)（後述する簡易版インフィード広告のみ必要）
 - 広告案件数
 - 広告位置配列
 - HTML, width, height （WebView 上で描画するフォーマットを選択した場合のみ必要）
@@ -711,7 +715,7 @@ height:80
 広告位置配列: 5,10,15
 HTML:<html><head><META http-equiv="Content-Type" content="text/html";charset="UTF-8"><styl
 e type="text/css"> .box1,.box2{display: table-cell;vertical-align:top;}.box1{width: 22px;}.main_img{text-align: center;}</style></head><body><div class="main_img"><img width="300
-" height="94" src="[% AD_MAIN_IMAGE_URL %]"/></div><div class="desc"><span style="font-size:13px;">[% AD_DESCRIPTION %]</span></div><div class="box1"><img width="18" height="18" 
+" height="94" src="[% AD_MAIN_IMAGE_URL %]"/></div><div class="desc"><span style="font-size:13px;">[% AD_DESCRIPTION %]</span></div><div class="box1"><img width="18" height="18"
 src="[% AD_ICON_IMAGE_URL %]"/></div><div class="box2"><span style="font-size:14.0px;"><font color="#0066cc">[% AD_TITLE %]</font></span></div></body></html>
 width: NULL(画面横幅いっぱい)
 height:165
@@ -731,20 +735,20 @@ height:230
 
 **現在は、新規広告枠の登録設定については担当者へお問い合わせください。**
 
-#簡易版インストリーム広告
+#簡易版インフィード広告
 
-簡易版インストリーム広告は`UITableView`の利用を前提としています。
+簡易版インフィード広告は`UITableView`の利用を前提としています。
 
-それ以外での利用については、後述するカスタムインストリーム広告を参照してください。
+それ以外での利用については、後述するカスタムインフィード広告を参照してください。
 
-##簡易版インストリーム広告の表示
-Instream広告の表示に必要なファイルは以下です。
+##簡易版インフィード広告の表示
+In-Feed広告の表示に必要なファイルは以下です。
 
 ```
 ADVSInstreamAdLoader.h
 ```
 
-上記ファイルを用いて以下の様に実装し、Instream広告をロードします。
+上記ファイルを用いて以下の様に実装し、In-Feed広告をロードします。
 
 ```objc
 
@@ -761,30 +765,30 @@ ADVSInstreamAdLoader.h
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     //(3) ADVSInstreamAdLoader をインスタンス化。delegate を設定
     self.instreamAdLoader = [ADVSInstreamAdLoader new];
     self.instreamAdLoader.delegate = self;
 
-    //(4) Instream広告を挿入したいtableViewと広告枠IDを設定
+    //(4) In-Feed広告を挿入したいtableViewと広告枠IDを設定
     [self.instreamAdLoader bindToTableView:self.tableView adSpotId:@"NDQ0OjMx"];
 
     // 媒体様のデータ取得完了を待って
     ...
 
-    //(5) Instream広告ロードを呼び出し
+    //(5) In-Feed広告ロードを呼び出し
     [self.instreamAdLoader loadAd];
 }
 
 ```
 
-上記のように実装する事で、Instream広告を表示する事が出来ます。
+上記のように実装する事で、In-Feed広告を表示する事が出来ます。
 `[your_tableView reloadData]`を呼ぶ必要はありません。`[your_tableView reloadData]`を呼ぶ必要がある場合は、`[self.instreamAdLoader reloadData];`を呼んでください。
 
 1リクエストあたりの広告案件数と広告位置配列は、`[self.instreamAdLoader loadAd:6 positions:@[@2,@4,@6,@8,@10,@12]];`などのAPIを使ってコントロールすることも出来ます。
 
-###簡易版インストリーム広告の表示時のイベント取得
-Instream広告の表示をする際に、そのイベントを受け取りたい場合があります。
+###簡易版インフィード広告の表示時のイベント取得
+In-Feed広告の表示をする際に、そのイベントを受け取りたい場合があります。
 
 その場合は `ADVSInstreamAdLoader ` のプロパティである delegate が、`ADVSInstreamAdLoaderDelegate` に準拠しているので、それ経由で受信する事が出来ます。
 
@@ -827,7 +831,7 @@ Instream広告の表示をする際に、そのイベントを受け取りたい
 
 ```
 
-###簡易版インストリーム広告の追加ロード
+###簡易版インフィード広告の追加ロード
 ユーザーがサイト下部に到達した際に追加フィードを読み込むような UI の場合に、追加で広告ロードを行うことも可能です。
 
 ```objc
@@ -838,7 +842,7 @@ Instream広告の表示をする際に、そのイベントを受け取りたい
 }
 ```
 
-###簡易版インストリーム広告フォーマット
+###簡易版インフィード広告フォーマット
 
 現状、7つの広告フォーマットを利用できます。設定は[こちら](##広告枠IDの取得)になります。
 
@@ -915,7 +919,7 @@ Instream広告の表示をする際に、そのイベントを受け取りたい
     // |                                                     |
     // |                                                     |
     // | --------------------------------------------------- |
-    // |  text                                               |                                                     
+    // |  text                                               |
     //  -----------------------------------------------------
 ```
 
@@ -935,25 +939,25 @@ Instream広告の表示をする際に、そのイベントを受け取りたい
 - 1-7) WebView
 	- HTML を入稿することで、アプリ内 WebView 上で描画することが出来ます。
 
-###簡易版インストリーム広告を使う上での注意点
+###簡易版インフィード広告を使う上での注意点
 
 `- (void)bindToTableView:adSpotId:`に渡す`UITableView`は、section数が1つである場合のみ動作保証されます。
 
-##カスタムインストリーム広告
+##カスタムインフィード広告
 
-簡易版インストリーム広告よりも柔軟な表示を行いたい場合などに、カスタム型のインストリーム広告機能を利用することが出来ます。
+簡易版インフィード広告よりも柔軟な表示を行いたい場合などに、カスタム型のインフィード広告機能を利用することが出来ます。
 
 下記のガイドでは、`UITableView`を前提とした例を示しますが、`UIView`などその他の場合でも利用が可能です。
 
-###カスタムインストリーム広告のロード
-Instream広告のロードに必要なファイルは以下です。
+###カスタムインフィード広告のロード
+In-Feed広告のロードに必要なファイルは以下です。
 
 ```
 ADVSInstreamAdLoader.h
 ADVSInstreamInfoModel.h
 ```
 
-上記ファイルを用いて以下の様に実装し、Instream広告をロードします。
+上記ファイルを用いて以下の様に実装し、In-Feed広告をロードします。
 
 ```objc
 
@@ -971,16 +975,16 @@ ADVSInstreamInfoModel.h
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     //(3) ADVSInstreamAdLoader をインスタンス化。delegate を設定
     self.instreamAdLoader = [ADVSInstreamAdLoader new];
     self.instreamAdLoader.delegate = self;
 
-    //(4) Instream広告ロードを呼び出し
+    //(4) In-Feed広告ロードを呼び出し
     [self.instreamAdLoader loadAdWithReturn:@"NDQ0OjMx" adCount:6 positions:@[@3,@6,@9,@12,@15,@18]];
 }
 
-//(5) Instream広告ロードの完了
+//(5) In-Feed広告ロードの完了
 - (void)instreamAdLoaderDidFinishLoadingAdWithReturn:(ADVSInstreamAdLoader *)instreamAdLoader
                                   instreamInfoModels:(NSArray*)instreamInfoModels
 {
@@ -994,9 +998,9 @@ ADVSInstreamInfoModel.h
 
 ```
 
-上記のように実装する事で、Instream広告をロードする事が出来ます。
+上記のように実装する事で、In-Feed広告をロードする事が出来ます。
 
-###カスタムインストリーム広告の表示
+###カスタムインフィード広告の表示
 `ADVSInstreamInfoModel.h`から取り出した情報をもとに、広告を表示させます。`position`は、広告の成果分析に使われるため、画面内の位置を決める参考にしてください。
 
 ```objc
@@ -1004,11 +1008,11 @@ ADVSInstreamInfoModel.h
 	if (infoModel.title) {
         self.adNameLabel.text = infoModel.title;
     }
-    
+
     if (infoModel.content) {
         self.adTextLabel.text = infoModel.content;
     }
-    
+
     [infoModel loadIconImage:self.adIconImageView completion:^(NSError *iconImageLoadError) {
         [infoModel loadImage:self.adImageView completion:^(NSError *imageLoadError) {
             if (iconImageLoadError || imageLoadError) {
@@ -1022,17 +1026,17 @@ ADVSInstreamInfoModel.h
 
 ```
 
-###カスタムインストリーム広告のインプレッション通知
+###カスタムインフィード広告のインプレッション通知
 広告の表示が完了したら、インプレッションを通知してください。
 `ADVSInstreamAdLoader.h`の`measureImp:`を呼び出してください。
 
 
-###カスタムインストリーム広告のクリック時の遷移処理
+###カスタムインフィード広告のクリック時の遷移処理
 広告がクリックされたら、以下のメソッドを呼び出すことで、適切にユーザーを遷移させることができます。
 `ADVSInstreamAdLoader.h`の`sendClickEvent:`を呼び出してください。
 
-###カスタムインストリーム広告のロードと各種通知時のイベント取得
-Instream広告のロードや各種通知をする際に、そのイベントを受け取りたい場合があります。
+###カスタムインフィード広告のロードと各種通知時のイベント取得
+In-Feed広告のロードや各種通知をする際に、そのイベントを受け取りたい場合があります。
 
 その場合は `ADVSInstreamAdLoader ` のプロパティである delegate が、`ADVSInstreamAdLoaderDelegate` に準拠しているので、それ経由で受信する事が出来ます。
 
@@ -1081,7 +1085,7 @@ Instream広告のロードや各種通知をする際に、そのイベントを
 
 ```
 
-###カスタムインストリーム広告パラメータ
+###カスタムインフィード広告パラメータ
 `ADVSInstreamInfoModel.h`を合わせて参照ください。
 
 | パラメータ名 | 説明 | 例 |
@@ -1112,7 +1116,7 @@ ADVSInstreamAdCellWebView.h
 のうち、利用するフォーマットのものを選択する
 ```
 
-[簡易版インストリーム広告から利用できるフォーマット](#簡易版インストリーム広告フォーマット)を利用することができます。
+[簡易版インフィード広告から利用できるフォーマット](#簡易版インフィード広告フォーマット)を利用することができます。
 
 上記ファイル を用いて以下の様に実装し、デフォルト広告フォーマットを表示します。
 
@@ -1139,14 +1143,14 @@ ADVSInstreamAdCellWebView.h
 
 		//(4) ロードした広告の情報をもとにセルを描画する
 	    [cell updateCell:adItem completion:^(NSError *error) {
-			
+
 			//(5) 描画が完了後、インプレッションログを送信する
     	    [self.instreamAdLoader measureImp:adItem];
 	    }];
-    
+
     	return cell;
     }
-    
+
     ...
 }
 ```
@@ -1167,6 +1171,20 @@ if (NSFoundationVersionNumber_iOS_6_0 <= floor(NSFoundationVersionNumber)) {
 ...
 ```
 - デベロッパーアプリ内でリンクしている、AdSupportとFoundationをoptionalにする
+
+##コード中にあるInstreamはどういう意味ですか
+
+このガイド中にある、`インフィード` `In-Feed` と同じ意味で用いられています
+
+##〇〇の機能はありますか？
+
+[Headers](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/tree/master/sdk/AppDavis.framework/Headers) に public API が公開されています
+
+##サンプルプロジェクトはありますか？
+[demo](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/demo.zip) を参考にしてください
+
+##バージョン番号はどういう意味がありますか？
+[semver](http://semver.org/) に従います
 
 ##他社SDKとの競合の解決
 
