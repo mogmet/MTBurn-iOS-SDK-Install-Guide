@@ -1178,7 +1178,7 @@ if (NSFoundationVersionNumber_iOS_6_0 <= floor(NSFoundationVersionNumber)) {
 
 ##〇〇の機能はありますか？
 
-[Headers](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/tree/master/sdk/AppDavis.framework/Headers) に public API が公開されています
+[Headers](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/tree/master/AppDavis.framework/Headers) に public API が公開されています
 
 ##サンプルプロジェクトはありますか？
 [demo](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/demo.zip) を参考にしてください
