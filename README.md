@@ -5,3 +5,5 @@
 ## AppDavis iOS SDK Programming Guide
 
 [日本語](Programming_Guide.md)
+
+[API 仕様](http://mtburn.github.io/MTBurn-iOS-SDK-Install-Guide/appledoc/latest/)
