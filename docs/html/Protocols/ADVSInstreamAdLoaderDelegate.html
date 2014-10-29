@@ -1,0 +1,872 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>ADVSInstreamAdLoaderDelegate Protocol Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 963)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">AppDavis.framework </a></h1>
+				<a id="developerHome" href="../index.html">MTBurn</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">ADVSInstreamAdLoaderDelegate Protocol Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/instreamAdLoader:didFailToLoadAdImageWithError:">&nbsp;&nbsp;&nbsp;&nbsp;- instreamAdLoader:didFailToLoadAdImageWithError:</option>
+	
+	<option value="//api/name/instreamAdLoader:didFailToLoadAdWithError:">&nbsp;&nbsp;&nbsp;&nbsp;- instreamAdLoader:didFailToLoadAdWithError:</option>
+	
+	<option value="//api/name/instreamAdLoader:didFailToSendClickWithError:">&nbsp;&nbsp;&nbsp;&nbsp;- instreamAdLoader:didFailToSendClickWithError:</option>
+	
+	<option value="//api/name/instreamAdLoader:didFailToSendImpWithError:">&nbsp;&nbsp;&nbsp;&nbsp;- instreamAdLoader:didFailToSendImpWithError:</option>
+	
+	<option value="//api/name/instreamAdLoaderDidFinishLoadingAd:">&nbsp;&nbsp;&nbsp;&nbsp;- instreamAdLoaderDidFinishLoadingAd:</option>
+	
+	<option value="//api/name/instreamAdLoaderDidFinishLoadingAdImage:">&nbsp;&nbsp;&nbsp;&nbsp;- instreamAdLoaderDidFinishLoadingAdImage:</option>
+	
+	<option value="//api/name/instreamAdLoaderDidFinishLoadingAdWithReturn:instreamInfoModels:">&nbsp;&nbsp;&nbsp;&nbsp;- instreamAdLoaderDidFinishLoadingAdWithReturn:instreamInfoModels:</option>
+	
+	<option value="//api/name/instreamAdLoaderDidFinishSendingAdClick">&nbsp;&nbsp;&nbsp;&nbsp;- instreamAdLoaderDidFinishSendingAdClick</option>
+	
+	<option value="//api/name/instreamAdLoaderDidFinishSendingAdImp">&nbsp;&nbsp;&nbsp;&nbsp;- instreamAdLoaderDidFinishSendingAdImp</option>
+	
+	<option value="//api/name/instreamAdLoaderDidStartLoadingAd:">&nbsp;&nbsp;&nbsp;&nbsp;- instreamAdLoaderDidStartLoadingAd:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/instreamAdLoader:didFailToLoadAdImageWithError:">instreamAdLoader:didFailToLoadAdImageWithError:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/instreamAdLoader:didFailToLoadAdWithError:">instreamAdLoader:didFailToLoadAdWithError:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/instreamAdLoader:didFailToSendClickWithError:">instreamAdLoader:didFailToSendClickWithError:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/instreamAdLoader:didFailToSendImpWithError:">instreamAdLoader:didFailToSendImpWithError:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/instreamAdLoaderDidFinishLoadingAd:">instreamAdLoaderDidFinishLoadingAd:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/instreamAdLoaderDidFinishLoadingAdImage:">instreamAdLoaderDidFinishLoadingAdImage:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/instreamAdLoaderDidFinishLoadingAdWithReturn:instreamInfoModels:">instreamAdLoaderDidFinishLoadingAdWithReturn:instreamInfoModels:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/instreamAdLoaderDidFinishSendingAdClick">instreamAdLoaderDidFinishSendingAdClick</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/instreamAdLoaderDidFinishSendingAdImp">instreamAdLoaderDidFinishSendingAdImp</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/instreamAdLoaderDidStartLoadingAd:">instreamAdLoaderDidStartLoadingAd:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="ADVSInstreamAdLoaderDelegate Protocol Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">ADVSInstreamAdLoaderDelegate Protocol Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">ADVSInstreamAdLoaderDelegate.h</td>
+</tr>
+						</tbody></table></div>
+					
+                    
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p><code>ADVSInstreamAdLoaderDelegate</code> is delegate protocol for getting loading instream advertisements result.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/instreamAdLoaderDidStartLoadingAd:">&ndash;&nbsp;instreamAdLoaderDidStartLoadingAd:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/instreamAdLoaderDidFinishLoadingAd:">&ndash;&nbsp;instreamAdLoaderDidFinishLoadingAd:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/instreamAdLoaderDidFinishLoadingAdWithReturn:instreamInfoModels:">&ndash;&nbsp;instreamAdLoaderDidFinishLoadingAdWithReturn:instreamInfoModels:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/instreamAdLoaderDidFinishLoadingAdImage:">&ndash;&nbsp;instreamAdLoaderDidFinishLoadingAdImage:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/instreamAdLoaderDidFinishSendingAdImp">&ndash;&nbsp;instreamAdLoaderDidFinishSendingAdImp</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/instreamAdLoaderDidFinishSendingAdClick">&ndash;&nbsp;instreamAdLoaderDidFinishSendingAdClick</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/instreamAdLoader:didFailToLoadAdWithError:">&ndash;&nbsp;instreamAdLoader:didFailToLoadAdWithError:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/instreamAdLoader:didFailToLoadAdImageWithError:">&ndash;&nbsp;instreamAdLoader:didFailToLoadAdImageWithError:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/instreamAdLoader:didFailToSendImpWithError:">&ndash;&nbsp;instreamAdLoader:didFailToSendImpWithError:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/instreamAdLoader:didFailToSendClickWithError:">&ndash;&nbsp;instreamAdLoader:didFailToSendClickWithError:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/instreamAdLoader:didFailToLoadAdImageWithError:" title="instreamAdLoader:didFailToLoadAdImageWithError:"></a>
+	<h3 class="subsubtitle method-title">instreamAdLoader:didFailToLoadAdImageWithError:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Tells event just failed to display instream advertisement.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)instreamAdLoader:(NSIndexPath *)<em>adIndexPath</em> didFailToLoadAdImageWithError:(NSError *)<em>error</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>adIndexPath</em></dt>
+			<dd><p>Object which is the position of the advertisement cell instance that is being viewed.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Tells event just failed to display instream advertisement.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ADVSInstreamAdLoaderDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/instreamAdLoader:didFailToLoadAdWithError:" title="instreamAdLoader:didFailToLoadAdWithError:"></a>
+	<h3 class="subsubtitle method-title">instreamAdLoader:didFailToLoadAdWithError:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Tells event just failed to load instream advertisement.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)instreamAdLoader:(ADVSInstreamAdLoader *)<em>instreamAdLoader</em> didFailToLoadAdWithError:(NSError *)<em>error</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>instreamAdLoader</em></dt>
+			<dd><p>Object which is loading instream advertisement.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>NSError instance.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Tells event just failed to load instream advertisement.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ADVSInstreamAdLoaderDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/instreamAdLoader:didFailToSendClickWithError:" title="instreamAdLoader:didFailToSendClickWithError:"></a>
+	<h3 class="subsubtitle method-title">instreamAdLoader:didFailToSendClickWithError:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Tells event just failed to send an clickinfo.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)instreamAdLoader:(ADVSInstreamAdLoader *)<em>instreamAdLoader</em> didFailToSendClickWithError:(NSError *)<em>error</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>instreamAdLoader</em></dt>
+			<dd><p>Object which is loading instream advertisement.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>NSError instance.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Tells event just failed to send an clickinfo.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ADVSInstreamAdLoaderDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/instreamAdLoader:didFailToSendImpWithError:" title="instreamAdLoader:didFailToSendImpWithError:"></a>
+	<h3 class="subsubtitle method-title">instreamAdLoader:didFailToSendImpWithError:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Tells event just failed to send an impression.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)instreamAdLoader:(ADVSInstreamAdLoader *)<em>instreamAdLoader</em> didFailToSendImpWithError:(NSError *)<em>error</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>instreamAdLoader</em></dt>
+			<dd><p>Object which is loading instream advertisement.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>error</em></dt>
+			<dd><p>NSError instance.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Tells event just failed to send an impression.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ADVSInstreamAdLoaderDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/instreamAdLoaderDidFinishLoadingAd:" title="instreamAdLoaderDidFinishLoadingAd:"></a>
+	<h3 class="subsubtitle method-title">instreamAdLoaderDidFinishLoadingAd:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Tells event just finishing instream advertisement.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)instreamAdLoaderDidFinishLoadingAd:(ADVSInstreamAdLoader *)<em>instreamAdLoader</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>instreamAdLoader</em></dt>
+			<dd><p>Object which is loading instream advertisement.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Tells event just finishing instream advertisement.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ADVSInstreamAdLoaderDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/instreamAdLoaderDidFinishLoadingAdImage:" title="instreamAdLoaderDidFinishLoadingAdImage:"></a>
+	<h3 class="subsubtitle method-title">instreamAdLoaderDidFinishLoadingAdImage:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Tells event finished displaying each advertisement cell instances.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)instreamAdLoaderDidFinishLoadingAdImage:(NSIndexPath *)<em>adIndexPath</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>adIndexPath</em></dt>
+			<dd><p>Object which is the position of the advertisement cell instance that is being viewed.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Tells event finished displaying each advertisement cell instances.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ADVSInstreamAdLoaderDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/instreamAdLoaderDidFinishLoadingAdWithReturn:instreamInfoModels:" title="instreamAdLoaderDidFinishLoadingAdWithReturn:instreamInfoModels:"></a>
+	<h3 class="subsubtitle method-title">instreamAdLoaderDidFinishLoadingAdWithReturn:instreamInfoModels:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Tells event just finishing, and returns <a href="../Classes/ADVSInstreamInfoModel.html"><code>ADVSInstreamInfoModel</code></a> instances.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)instreamAdLoaderDidFinishLoadingAdWithReturn:(ADVSInstreamAdLoader *)<em>instreamAdLoader</em> instreamInfoModels:(NSArray *)<em>instreamInfoModels</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>instreamAdLoader</em></dt>
+			<dd><p>Object which is loading instream advertisement.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>instreamInfoModels</em></dt>
+			<dd><p>Array  which contains <a href="../Classes/ADVSInstreamInfoModel.html"><code>ADVSInstreamInfoModel</code></a> instances.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Tells event just finishing, and returns <a href="../Classes/ADVSInstreamInfoModel.html"><code>ADVSInstreamInfoModel</code></a> instances.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ADVSInstreamAdLoaderDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/instreamAdLoaderDidFinishSendingAdClick" title="instreamAdLoaderDidFinishSendingAdClick"></a>
+	<h3 class="subsubtitle method-title">instreamAdLoaderDidFinishSendingAdClick</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Tells event which clicked advertisement cell instances.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)instreamAdLoaderDidFinishSendingAdClick</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Tells event which clicked advertisement cell instances.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ADVSInstreamAdLoaderDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/instreamAdLoaderDidFinishSendingAdImp" title="instreamAdLoaderDidFinishSendingAdImp"></a>
+	<h3 class="subsubtitle method-title">instreamAdLoaderDidFinishSendingAdImp</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Tells event to send an impression just finishing.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)instreamAdLoaderDidFinishSendingAdImp</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Tells event to send an impression just finishing.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ADVSInstreamAdLoaderDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/instreamAdLoaderDidStartLoadingAd:" title="instreamAdLoaderDidStartLoadingAd:"></a>
+	<h3 class="subsubtitle method-title">instreamAdLoaderDidStartLoadingAd:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Tells event just starting instream advertisement.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)instreamAdLoaderDidStartLoadingAd:(ADVSInstreamAdLoader *)<em>instreamAdLoader</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>instreamAdLoader</em></dt>
+			<dd><p>Object which is loading instream advertisement.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Tells event just starting instream advertisement.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">ADVSInstreamAdLoaderDelegate.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+                    
+                    
+                    
+                    
+
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2014 MTBurn. All rights reserved. (Last updated: 2014-10-29)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>
