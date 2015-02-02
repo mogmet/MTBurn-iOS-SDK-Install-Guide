@@ -1099,8 +1099,9 @@ In-Feed広告のロードや各種通知をする際に、そのイベントを�
 | iconImage | アイコン型の正方形画像(114x114 pixel固定) | 下記メソッドを呼び出してください |
 | mainImage | バナー型の矩形画像など(広告枠IDごとにサイズ可変) | 下記メソッドを呼び出してください |
 
-`- (void)loadIconImage:(UIImageView*)iconImageView completion:(void (^)(NSError *error)) completion;` はiconImageの取得に利用ください。
-`- (void)loadImage:(UIImageView*)imageView completion:(void (^)(NSError *error)) completion;` はmainImageの取得に利用ください。
+- `- (void)loadIconImage:(UIImageView*)iconImageView completion:(void (^)(NSError *error)) completion;` はiconImageの取得に利用ください。
+- `- (void)loadImage:(UIImageView*)imageView completion:(void (^)(NSError *error)) completion;` はmainImageの取得に利用ください。
+- `説明・紹介文` は `content` プロパティです。NSObject の [description](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSObject_Class/index.html#//apple_ref/occ/clm/NSObject/description) メソッドではありません。ご注意ください。
 
 ###SDKがデフォルトで提供する広告フォーマットの任意利用
 
