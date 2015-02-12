@@ -6,7 +6,7 @@
 
 [日本語](Programming_Guide.md)
 
-## AppDavis iOS SDK API Spec
+## AppDavis iOS SDK API Spec (appledoc)
 
 [日本語](http://mtburn.github.io/MTBurn-iOS-SDK-Install-Guide/appledoc/latest/)
 

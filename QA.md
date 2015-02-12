@@ -1,15 +1,16 @@
 #目次
 
-* [問い合わせの仕方](#問い合わせの仕方)
-* [端末からどのような情報を取得していますか？](#端末からどのような情報を取得していますか？)
-* [iOS 6.0未満の端末においてクラッシュする問題への対応](#ios60未満の端末においてクラッシュする問題への対応)
-* [コード中にあるInstreamはどういう意味ですか](#コード中にあるInstreamはどういう意味ですか)
-* [〇〇の機能はありますか？](#〇〇の機能はありますか？)
-* [サンプルプロジェクトはありますか？](#サンプルプロジェクトはありますか？)
-* [広告が表示されない](#広告が表示されない)
-* [バージョン番号はどういう意味がありますか？](#バージョン番号はどういう意味がありますか？)
-* [他社SDKとの競合の解決](#他社sdkとの競合の解決)
+* [問い合わせの仕方](#howto)
+* [端末からどのような情報を取得していますか？](#info)
+* [iOS 6.0未満の端末においてクラッシュする問題への対応](#ios6)
+* [コード中にあるInstreamはどういう意味ですか](#instream)
+* [〇〇の機能はありますか？](#function)
+* [サンプルプロジェクトはありますか？](#sample)
+* [広告が表示されない](#not_found_ad)
+* [バージョン番号はどういう意味がありますか？](#version)
+* [他社SDKとの競合の解決](#race)
 
+<a name="howto"></a>
 #問い合わせの仕方
 
 ###問い合わせをする前に次のことをご確認ください
@@ -36,6 +37,7 @@
 - 再現した際のログ/プロジェクトファイル(あれば): ---
 ```
 
+<a name="info"></a>
 #端末からどのような情報を取得していますか？
 
 - 次の情報を取得しています
@@ -49,6 +51,7 @@
 | 言語設定 | `NSLocale preferredLanguages [0]` | `ja`, `en` など |
 | 国コード | `NSLocale NSLocaleCountryCode` | `JP`, `US` など |
 
+<a name="ios6"></a>
 #iOS6.0未満の端末においてクラッシュする問題への対応
 
 当該SDKの対応OSは6.0以上のため、6.0未満の端末において広告を表示することはできません。
@@ -64,17 +67,21 @@ if (NSFoundationVersionNumber_iOS_6_0 <= floor(NSFoundationVersionNumber)) {
 ```
 - デベロッパーアプリ内でリンクしている、AdSupportとFoundationをoptionalにする
 
+<a name="instream"></a>
 #コード中にあるInstreamはどういう意味ですか
 
 このガイド中にある、`インフィード` `In-Feed` と同じ意味で用いられています
 
+<a name="function"></a>
 #〇〇の機能はありますか？
 
 [Headers](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/tree/master/AppDavis.framework/Headers) または [API 仕様ページ](http://mtburn.github.io/MTBurn-iOS-SDK-Install-Guide/appledoc/latest/) に public API がまとめられています
 
+<a name="sample"></a>
 #サンプルプロジェクトはありますか？
 [demo](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/demo.zip) を参考にしてください
 
+<a name="not_found_ad"></a>
 #広告が表示されない
 
 次の順番でおおまかな原因の特定が可能です。それぞれに対する対応方法も示します。
@@ -113,9 +120,11 @@ if (NSFoundationVersionNumber_iOS_6_0 <= floor(NSFoundationVersionNumber)) {
 
 `アカウント`に問題がある場合には、担当者にご連絡ください。
 
+<a name="version"></a>
 #バージョン番号はどういう意味がありますか？
 [semver](http://semver.org/) に従います
 
+<a name="race"></a>
 #他社SDKとの競合の解決
 
 AppDavis SDK と他社広告 SDK と同時にご利用頂いた場合に競合が発生し、AppDavis の一部の機能がご利用いただけない事例が報告されています。
