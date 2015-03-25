@@ -19,6 +19,12 @@
 @property (nonatomic) NSString *adSpotId;
 
 /**
+ Get an adLoader of sharedInstance.
+ Prefer it to the way to create an instance manually for avoiding a crash.
+ */
++ (instancetype)sharedInstance;
+
+/**
  Loads a institial type advertisement request asynchronously.
  
  @see ADVSInterstitialAdLoaderDelegate.h

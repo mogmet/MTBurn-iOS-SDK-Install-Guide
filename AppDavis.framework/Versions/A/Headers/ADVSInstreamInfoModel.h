@@ -40,6 +40,12 @@
 @property (nonatomic, readonly) NSNumber *position;
 
 /**
+ advertiser name to be put in the tableView.
+ it is used to show that this content is provided for PR.
+ */
+@property (nonatomic, readonly) NSString *displayedAdvertiser;
+
+/**
  starts loading advertisement icon image for assigning a UIImage to the iconImageView,
  if you want to do so.
  
