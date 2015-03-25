@@ -52,10 +52,9 @@
 AppDavis.framework
 ```
 
-また、デモアプリを試す場合は、DemoApp ディレクトリ内のプロジェクトを立ち上げてください。Framework ファイルの追加は以下を確認して下さい。
+また、デモアプリを試す場合は、DemoApp ディレクトリ内のプロジェクトを立ち上げてください。Framework ファイルの追加は以下の該当する項目を確認して下さい。
 
 ```
-$ unzip ./demo.zip
 $ cd DemoApp/
 $ open DemoApp.xcodeproj/
 ```
@@ -117,7 +116,7 @@ Frameworks グループに AppDavis.framework が追加された事を確認で�
 <a name="error"></a>
 #エラー文言の表示
 
-demo.zip を解凍後、DemoApp/DemoApp/ADVSError.strings を SDK を利用するプロジェクトに加えてください。
+DemoApp/DemoApp/ADVSError.strings を SDK を利用するプロジェクトに加えてください。
 
 <a name="pods"></a>
 #CocoaPodsの利用

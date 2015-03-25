@@ -16,7 +16,7 @@
 ###問い合わせをする前に次のことをご確認ください
 
 1. `Install-Guide`, [API 仕様 doc](http://mtburn.github.io/MTBurn-iOS-SDK-Install-Guide/appledoc/latest/) を確認する、特に`よくある質問` の内容にすでに解決策がないか確認する
-2. [デモプロジェクト](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/blob/master/demo.zip) を動かしてみる、また、ソースコードの該当箇所を確認する
+2. [デモプロジェクト](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/blob/master/DemoApp) を動かしてみる、また、ソースコードの該当箇所を確認する
 3. [issues](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/issues?q=is%3Aissue+is%3Aclosed) を確認する
 
 ###問い合わせ先
@@ -79,7 +79,7 @@ if (NSFoundationVersionNumber_iOS_6_0 <= floor(NSFoundationVersionNumber)) {
 
 <a name="sample"></a>
 #サンプルプロジェクトはありますか？
-[demo](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/demo.zip) を参考にしてください
+[DemoApp](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/DemoApp) を参考にしてください
 
 <a name="not_found_ad"></a>
 #広告が表示されない
@@ -116,7 +116,7 @@ if (NSFoundationVersionNumber_iOS_6_0 <= floor(NSFoundationVersionNumber)) {
 
 `発行していただいたアカウント`、`本番の広告を表示するテストアカウント`、`テストの広告を表示するテストアカウント`の 3 つを試しても表示がされない場合に、`アカウント` 関係に問題があるのか、アプリまたは SDK に問題があるのかどうかを確認してもらうことをお願いしております。
 
-[SDK 付属のデモプロジェクト](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/blob/master/demo.zip)はデフォルトで `本番の広告を表示するテストアカウント` で動いているので、これを起動して表示がされれば、アプリの呼び出し方法に問題があることがわかります。`ADVSAppDelegate.m` で `アカウント`を任意に設定出来ますので、`アカウント`に問題があるのかどうかの切り分けにご活用ください。
+[SDK 付属のデモプロジェクト](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/blob/master/DemoApp)はデフォルトで `本番の広告を表示するテストアカウント` で動いているので、これを起動して表示がされれば、アプリの呼び出し方法に問題があることがわかります。`ADVSAppDelegate.m` で `アカウント`を任意に設定出来ますので、`アカウント`に問題があるのかどうかの切り分けにご活用ください。
 
 `アカウント`に問題がある場合には、担当者にご連絡ください。
 

@@ -522,8 +522,6 @@ ADVSInterstitialAdLoader を用いて以下の様に実装し、インタース�
 #import <AppDavis/ADVSInterstitialAdLoader.h>
 
 @interface YourViewController ()
-//(2) プロパティを定義
-@property (nonatomic) ADVSInterstitialAdLoader *interstitialAdLoader;
 @end
 
 
@@ -531,19 +529,18 @@ ADVSInterstitialAdLoader を用いて以下の様に実装し、インタース�
 {
     [super viewDidLoad];
 
-    //(3) ADVSInterstitialAdLoader をインスタンス化。delegate を設定
-    self.interstitialAdLoader = [ADVSInterstitialAdLoader new];
-    self.interstitialAdLoader.delegate = self;
+    //(2) ADVSInterstitialAdLoader シングルトンを取得して、delegate を設定
+    [ADVSInterstitialAdLoader sharedInstance].delegate = self;
 
-    //(4) インタースティシャル広告ロードを呼び出し
-    [self.interstitialAdLoader loadRequest];
+    //(3) インタースティシャル広告ロードの呼び出し
+    [[ADVSInterstitialAdLoader sharedInstance] loadRequest];
 }
 
-//(5) インターステイシャル広告表示準備の完了
+//(4) インターステイシャル広告表示準備の完了
 - (void)interstitialAdLoaderDidFinishLoadingAdView:(ADVSInterstitialAdLoader *)interstitialAdLoader
 {
-    //(6) インターステイシャル広告表示を呼び出し
-    [self.interstitialAdLoader displayAd];
+    //(5) インターステイシャル広告表示の呼び出し
+    [[ADVSInterstitialAdLoader sharedInstance] displayAd];
 }
 
 ```
@@ -563,7 +560,7 @@ ADVSInterstitialAdLoaderDelegate に準拠しているので、それ経由で�
 - (void)viewDidLoad
 {
     //(1) delegate を設定
-    self.interstitialAdLoader.delegate = self;
+    [ADVSInterstitialAdLoader sharedInstance].delegate = self;
 }
 
 //(2)広告のロード開始時
@@ -638,7 +635,7 @@ ADVSInterstitialAdLoaderDelegate に準拠しているので、それ経由で�
 この機能を実装するには、ADVSInterstitialAdLoader のプロパティである adSpotId に広告枠 ID をセットしてください。スキップ時は delegate の `interstitialAdLoaderDidFinishLoadingAdView:interstitialAdLoader` の代わりに、`interstitialAdLoaderDidSkipLoadingAd:interstitialAdLoader` が呼び出されます。
 
 ```objc
-self.interstitialAdLoader.adSpotId = @"your_adspot_id";
+[ADVSInterstitialAdLoader sharedInstance].adSpotId = @"your_adspot_id";
 ```
 
 <a name="infeed"></a>
@@ -869,23 +866,23 @@ In-Feed広告の表示をする際に、そのイベントを受け取りたい�
 - 1-1) ThumnailMiddle
 
 ```
-	// The format looks like this
+    // The format looks like this
     //  -----------------------------------------------------
-    // |             |  icon + name                      Ad  |
+    // |             |  icon + name                          |
     // |   image     |  ad text                              |
     // |             |                                       |
     // |   90x90     |                                       |
-    // |             |                                       |
+    // |             |                                    PR |
     //  -----------------------------------------------------
 ```
 
 - 1-2) ThumnailSmall
 
 ```
-	// The format looks like this
+    // The format looks like this
     //  -----------------------------------------------------
     // |  -------    icon + name                             |
-    // | | image |   Sponsored                               |
+    // | | image |   PR                                      |
     // | | 50x50 |   ad text                                 |
     // | |       |                                           |
     // |  -------                                            |
@@ -895,7 +892,7 @@ In-Feed広告の表示をする際に、そのイベントを受け取りたい�
 - 1-3) LandscapePhoto
 
 ```
-	// The format looks like this
+    // The format looks like this
     //  -----------------------------------------------------
     // |                                                     |
     // |                  ad image                           |
@@ -904,17 +901,18 @@ In-Feed広告の表示をする際に、そのイベントを受け取りたい�
     // |  ad text                                            |
     // |                                                     |
     // |                                                     |
-    // |  advertiser icon + name                         Ad  |
+    // |                                                 PR  |
+    // |  advertiser icon + name                             |
     //  -----------------------------------------------------
 ```
 
 - 1-4) PhotoBottom
 
 ```
-	// The format looks like this
+    // The format looks like this
     //  -----------------------------------------------------
     // |  advertiser |  advertiser name                      |
-    // |     icon    |  Sponsored                            |
+    // |     icon    |  PR                                   |
     // |             |  ad text                              |
     // | --------------------------------------------------- |
     // |                                                     |
@@ -927,14 +925,14 @@ In-Feed広告の表示をする際に、そのイベントを受け取りたい�
 - 1-5) PhotoMiddle
 
 ```
-	// The format looks like this
+    // The format looks like this
     //  -----------------------------------------------------
-    // | icon + name                                     Ad  |
+    // | icon + name                                         |
+    // |                                                  PR |
     // | --------------------------------------------------- |
     // |                                                     |
     // |                                                     |
     // |                      image                          |
-    // |                                                     |
     // |                                                     |
     // |                                                     |
     // |                                                     |
@@ -946,9 +944,11 @@ In-Feed広告の表示をする際に、そのイベントを受け取りたい�
 - 1-6) TextOnly
 
 ```
-	// The format looks like this
+    // The format looks like this
     //  -----------------------------------------------------
-    // |  icon + name                              Sponsored |
+    // |  icon + name                                        |
+    // |                                                  PR |
+    // | --------------------------------------------------- |
     // |                                                     |
     // |             ad text                                 |
     // |                                                     |
@@ -1037,6 +1037,12 @@ ADVSInstreamInfoModel.h
         self.adTextLabel.text = infoModel.content;
     }
 
+    if (0 < [infoModel.displayedAdvertiser length]) {
+        self.adIndicatorLabel.text = infoModel.displayedAdvertiser;
+    } else {
+        self.adIndicatorLabel.text = @"PR";
+    }
+
     [infoModel loadIconImage:self.adIconImageView completion:^(NSError *iconImageLoadError) {
         [infoModel loadImage:self.adImageView completion:^(NSError *imageLoadError) {
             if (iconImageLoadError || imageLoadError) {
@@ -1121,6 +1127,7 @@ In-Feed広告のロードや各種通知をする際に、そのイベントを�
 | title | タイトル文言(全角20文字以内) | `TestAd` |
 | content | 説明・紹介文(全角40~70文字以内) | `テスト広告です。` |
 | position | 広告案件の 相対位置 | `3` |
+| displayedAdvertiser | 表記広告主名 | `飲料会社 A社` |
 | iconImage | アイコン型の正方形画像(114x114 pixel固定) | 下記メソッドを呼び出してください |
 | mainImage | バナー型の矩形画像など(広告枠IDごとにサイズ可変) | 下記メソッドを呼び出してください |
 
