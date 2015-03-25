@@ -1,0 +1,15 @@
+/* 
+  ADVSError.strings
+  AppDavis-iOS-SDK
+
+  Created by M.T.Burn on 2014/03/25.
+  Copyright (c) 2014年 M.T.Burn. All rights reserved.
+*/
+
+"1000" = "Couldn't load any ad information";
+"1001" = "Not been set your mediaID";
+"1002" = "Internal Error in SDK";
+"1003" = "Set invalid mediaID";
+"1004" = "Failed to download the configuration. Retry to download again";
+"1006" = "Invalid tableView object was given to SDK interface";
+"1007" = "Invalid arguments were given to SDK interface";
