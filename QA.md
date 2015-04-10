@@ -6,7 +6,7 @@
 * [コード中にあるInstreamはどういう意味ですか](#instream)
 * [〇〇の機能はありますか？](#function)
 * [サンプルプロジェクトはありますか？](#sample)
-* [広告が表示されない](#not_found_ad)
+* [広告の表示に問題がある（表示されない、重複するなど）](#not_found_ad)
 * [バージョン番号はどういう意味がありますか？](#version)
 * [他社SDKとの競合の解決](#race)
 
@@ -15,7 +15,7 @@
 
 ###問い合わせをする前に次のことをご確認ください
 
-1. `Install-Guide`, [API 仕様 doc](http://mtburn.github.io/MTBurn-iOS-SDK-Install-Guide/appledoc/latest/) を確認する、特に`よくある質問` の内容にすでに解決策がないか確認する
+1. `Install-Guide`, [API 仕様 doc](http://mtburn.github.io/MTBurn-iOS-SDK-Install-Guide/appledoc/latest/) を確認する、特に`この QA ページ` にすでに解決策がないか確認する
 2. [デモプロジェクト](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/blob/master/DemoApp) を動かしてみる、また、ソースコードの該当箇所を確認する
 3. [issues](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/issues?q=is%3Aissue+is%3Aclosed) を確認する
 
@@ -23,6 +23,7 @@
 
 - [issues](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/issues) を活用ください
 - 何らかの理由により、`issues` による問い合わせが難しい場合には、担当者を介して問い合わせください
+ - その場合も問い合わせ先以外の仕方はこの項を参考にしてください
 
 ###問い合わせフォーマット
 
@@ -82,7 +83,7 @@ if (NSFoundationVersionNumber_iOS_6_0 <= floor(NSFoundationVersionNumber)) {
 [DemoApp](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/DemoApp) を参考にしてください
 
 <a name="not_found_ad"></a>
-#広告が表示されない
+#広告の表示に問題がある（表示されない、重複するなど）
 
 次の順番でおおまかな原因の特定が可能です。それぞれに対する対応方法も示します。
 
@@ -98,23 +99,23 @@ if (NSFoundationVersionNumber_iOS_6_0 <= floor(NSFoundationVersionNumber)) {
 そのうえで、上記インフィード広告の説明にある、`media_id 2` とそれに紐づく`広告枠 ID` （以後、`本番の広告を表示するテストアカウント`）は、まれにですが、本番の広告を取得する性質上、広告が取得できない場合があります。
 `本番の広告を表示するテストアカウント` を設定しても広告が表示されない場合には、`テストの広告を表示するテストアカウント`を試してもらうことをお願いしております。
 
-`テストの広告を表示するテストアカウント` は `media_id` は `1` で、`広告枠 ID` は次のとおりです。
+`テストの広告を表示するテストアカウント` は `media_id` は `1` で、それぞれに対応する`広告枠 ID` は次のとおりです。
 
-| 広告枠 ID | 広告画像サイズ | 広告フォーマット |
-| --- | --- | --- |
-| NDgzOjE | 114x114 pixel | ThumnailMiddle |
-| Njc4OjI | 114x114 pixel | ThumnailSmall |
-| NzA3OjM | 640x200 pixel | LandscapePhoto |
-| MTY5OjQ | 640x320 pixel | PhotoBottom |
-| OTMzOjU | 640x320 pixel | PhotoMiddle |
-| MzUxOjk | 114x114 pixel | TextOnly |
-| OTgxOjUy | 114x114 pixel | WebView（小） |
-| MjQxOjUz | 640x200 pixel | WebView（中） |
-| NjA0OjU0 | 640x320 pixel | WebView（大） |
+| media_id 1 に対応する広告枠 ID | media_id 2 に対応する広告枠 ID | 広告画像サイズ | 広告フォーマット |
+| --- | --- | --- | --- |
+| NDgzOjE | NDQ0OjMx | 114x114 pixel | ThumnailMiddle |
+| Njc4OjI | OTA2OjMy | 114x114 pixel | ThumnailSmall |
+| NzA3OjM | ODEzOjMz | 640x200 pixel | LandscapePhoto |
+| MTY5OjQ | OTIyOjM0 | 640x320 pixel | PhotoBottom |
+| OTMzOjU | NzA2OjM1 | 640x320 pixel | PhotoMiddle |
+| MzUxOjk | MzA3OjM2 | 114x114 pixel | TextOnly |
+| OTgxOjUy | MTI2OjU1 | 114x114 pixel | WebView（小） |
+| MjQxOjUz | OTkzOjU2 | 640x200 pixel | WebView（中） |
+| NjA0OjU0 | MzEzOjU3 | 640x320 pixel | WebView（大） |
 
 ###アプリの呼び出し方法に問題がある
 
-`発行していただいたアカウント`、`本番の広告を表示するテストアカウント`、`テストの広告を表示するテストアカウント`の 3 つを試しても表示がされない場合に、`アカウント` 関係に問題があるのか、アプリまたは SDK に問題があるのかどうかを確認してもらうことをお願いしております。
+`発行していただいたアカウント`、`本番の広告を表示するテストアカウント`、`テストの広告を表示するテストアカウント`の 3 つを試しても表示の問題が解消されない場合には、`アカウント` 関係に問題があるのか、アプリまたは SDK に問題があるのかどうかを確認してもらうことをお願いしております。
 
 [SDK 付属のデモプロジェクト](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/blob/master/DemoApp)はデフォルトで `本番の広告を表示するテストアカウント` で動いているので、これを起動して表示がされれば、アプリの呼び出し方法に問題があることがわかります。`ADVSAppDelegate.m` で `アカウント`を任意に設定出来ますので、`アカウント`に問題があるのかどうかの切り分けにご活用ください。
 
