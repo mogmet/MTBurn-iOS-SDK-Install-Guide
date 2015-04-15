@@ -131,3 +131,9 @@ if (NSFoundationVersionNumber_iOS_6_0 <= floor(NSFoundationVersionNumber)) {
 AppDavis SDK と他社広告 SDK と同時にご利用頂いた場合に競合が発生し、AppDavis の一部の機能がご利用いただけない事例が報告されています。
 
 解決方法として、それぞれの SDK の利用タイミングに応じて、初期化処理 (AppDavis の場合 `initMedia` 関数) の呼び出し自体を出し分けてしまうことで、衝突の回避ができることがあります。
+
+### 現在までに確認された競合の問題とその解消策
+
+`i-mobile ios sdk 1.30 以前` と競合が発生することを確認しています
+
+- バージョンアップすることで解消することを合わせて確認しております
