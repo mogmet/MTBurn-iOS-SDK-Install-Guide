@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source = {
       :git => "https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide.git",
-      :tag => "v1.1.0"
+      :branch => "printed-debug-v1.1.0/4"
   }
   s.vendored_frameworks = 'AppDavis.framework'
 
