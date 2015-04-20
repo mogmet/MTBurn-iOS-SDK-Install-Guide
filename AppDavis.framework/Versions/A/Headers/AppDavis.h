@@ -47,6 +47,9 @@ extern NSString *const ADVSParameterIconAdTextFontAjustWidth;
 
 + (void)initMedia:(NSString *)mediaId;
 
+// for debug
++ (void)initMediaWithSkipcheck:(NSString *)mediaId;
+
 + (void)initMedia:(NSString *)mediaId params:(NSDictionary*)params;
 
 @end
